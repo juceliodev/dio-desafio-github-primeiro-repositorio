@@ -1,0 +1,51 @@
+Comandos para configuraçao do git para sendo feito na primeira vez que roda o git na maquina. Este comando é para identificaçao de quem esta fazendo as alteraçoes nos arquivos.
+
+git config --global user.email "juceliodesa@gmail.com"
+
+git config --global user.name jucelio
+
+
+COMANDO PARA RESETAR O EMAIL E USUARIO
+
+git config --global --unset  user.email "juceliodesa@gmail.com"
+
+git config --global --unset user.name jucelio
+
+
+
+
+
+PARA INICIAR O GIT
+
+git init
+
+
+COMANDOS PARA LISTAR DIRETORIOS OCULTOS
+
+ls -a
+
+
+COMANDOS PARA FAZER COMMIT
+
+git status( para ver se foi feito alguma modificaçao em arquivos e que precisam ser comitados)
+
+git add *
+
+git commit -m "nome do commit"
+
+COMANDO PARA LINKAR O REPOSITORIO LOCAL AO REPOSITORIO REMOTO GITHUB
+
+git remote add origin https://github.com/juceliodev/livro-receitas.git
+
+COMANDO PARA EMPURRAR O REPOSITORIO LOCAL PARA O GITHUB
+(OBS O ORIGIN É O APELIDO DADO AO ENDERECO DO GITHUB PARA EVITAR FICAR DIGITANDO O MESMO SEMPRE)
+  git push origin master
+
+COMANDO PARA PUXAR O REPOSITRIO DO GITHUB
+  git pull origin master
+
+COMANDOS PARA CLONAR UM REPOSITORIO DO GITHUB
+ git clone "cole aqui o link do repositorio do github"
+
+COMANDOS PARA VER PARA ONDE OS NOSSOS REPOSITORIOS ESTA APONTADO NO GITHUB
+git remote -v
