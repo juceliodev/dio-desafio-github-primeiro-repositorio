@@ -1,0 +1,69 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box; /*Conta o tamanho do elemento junto com a borda e junto com o padding*/
+}
+body {
+  height: 100vh;
+  display: flex;
+  background-color: rgb(54, 189, 189);
+}
+
+/*Estilizando a div principal do game*/
+.memory-game {
+  height: 640px;
+  width: 640px;
+  margin: auto; /*Coloca a margem automatica nos dois lados*/
+  display: flex;
+  flex-wrap: wrap; /*Para que quando os elementos nao couberem no container eles quebrem a linha*/
+
+  /*Adicionando uma perspectiva no eixo z para percepcao do efeito 3D
+    quanto maior a perspectiva maior o efeito 3D
+    Antes de adicionar a perspectiva foi adicionada uma classe chamada flip em cada card atraves do scripts.js */
+  perspective: 1000px;
+}
+
+/*Estilizando a div que vai receber cada carta de frente e verso*/
+.card {
+  height: calc(33.333% - 10px);
+  width: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px 1px rgb(1, 1, 1, 0.3);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d; /*Nao deixa o elemento ficar achatado na tela em 2D*/
+  transition: transform 0.9s;
+}
+
+/*Criando o efeito quando a carta é clicada diminui e aumenta de tamanho */
+.card:active {
+  transform: scale(0.97);
+  transition: transform 0.3s;
+}
+
+/*Estilizando cada carta de frente e verso do game */
+.card-front,
+.card-back {
+  height: 100%;
+  width: 100%;
+  padding: 0px;
+  position: absolute; /*Deixa uma carta sobre a outra, absolute em relacao a classe .card que é relative*/
+  border-radius: 5px;
+  background: rgb(70, 122, 122);;
+  /*Todo elemento tem a propriedade backface-visibility que o espelhamento dele mesmo ao contrario
+    colocando como hidden para que possamos ver os dois lados da carta frente e verso
+    retira o verso do elemento*/
+  backface-visibility: hidden;
+}
+
+/*Rotacionado a card-front para seja vista a imagem da carta, caso nao fizer isso, quando viramos
+a carta na animacao do .card.flip a carta apareceria transparente sem a imagem*/
+.card-front {
+  transform: rotateY(180deg);
+}
+
+/*Criando a animacao do flipCard utilizando a classe flip criada atraves do script.js*/
+.card.flip {
+  transform: rotateY(180deg);
+}
